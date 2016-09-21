@@ -1,14 +1,14 @@
 function myTime() {
 	var pomodoros = new Array;
 	//declare new Array pomodoros
-	if (pomodoro !== null) {
+	var pomodoros_num = localStorage.getItem('pomodoro');
+	if (pomodoros_num !== null) {
 		//checks if pomodoro is null or NOT
 		pomodoros = pomodoro;
 		//if pomodoro is NOT null sets it to pomodoros
 	} else (pomodoros = [1500000, 50000]);
 		//if pomodoro is null sets pomodoros to the array [1500000, 50000]
-	pomodoros = localStorage.setItem('pomodoro');
-	//and then sets localStorage to pomodoro = [1500000, 50000]
+	
 	var focus = pomodoros[0];
 	//declare variable focus and sets it to the first item in array pomodoros
 	var relax = pomodoros[1];
