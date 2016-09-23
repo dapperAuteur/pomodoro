@@ -1,20 +1,53 @@
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=yes">
-		<link rel="stylesheet" href="style.css">
-	</head>
-	<body>
-	<h1>Pomodoro</h1>
-		<div class="container">
-			<h1 id="time" style="text-align: center"></h1>
-			
-			<!-- <p>Live Example</p>
-			<button onclick="delayedAlert();">Start The Focus Timer</button>
-			<p></p>
-			<button onclick="clearAlert();">Cancel The Focus Timer</button> -->
-		<div>
-			<script src="script.js"></script>
-		</div>
-	</body>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro Clock</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class=".col-xs-6 col-md-4 h2">
+            <div class="row">Settings</div>
+            <div class="row">Focus Activity</div>
+            <div class="row">Relax Activity</div>
+        </div>
+        <div class=".col-xs-6 col-md-4">
+            <div>
+                <h1>Focus Clock</h1>
+                <h1 id="focus">25:00</h1>
+                <div class="row">
+                    <button type="button" class="btn btn-success"  id="increaseFocusTime">+Focus Time</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-danger" id="decreaseFocusTime">-Focus Time</button>
+                </div>
+            </div>
+        </div>
+        <div class=".col-xs-6 col-md-4">
+            <div>
+                <h1>Relax Clock</h1>
+                <h1 id="relax">5:00</h1>
+                <div class="row">
+                    <button type="button" class="btn btn-info" id="increaseRelaxTime">+Relax Time</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-warning" id="decreaseRelaxTime">-Relax Time</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>
