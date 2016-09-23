@@ -30,6 +30,20 @@ function increaseFocusTime() {
     //return false;
     //was added to stop the function from running, but doesn't appear to be necessary
 }
+
+----
+function pCountDown() {
+    
+  var timer = document.getElementById("logout-timer")
+    , now = new Date()
+    , deadline = new Date(now.getFullYear, now.getMonth, now.getDate, now.getHours, now.getMinutes + 15);
+ 
+  timer.innerHTML = countdown(deadline).toString();
+  setInterval(function(){
+    timer.innerHTML = countdown(deadline ).toString();
+  }, 1000);
+}
+----
 document.getElementById('increaseFocusTime').addEventListener('click', increaseFocusTime);
 //listens for increaseFocusTime button to be clicked and then calls increaseFocusTime() function
 show();
