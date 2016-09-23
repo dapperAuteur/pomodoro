@@ -22,13 +22,15 @@ function increaseFocusTime() {
     console.log(typeof focusTime);
     console.log(focusTime);
     focusTime++;
+    //increase focusTime by 1
     console.log(typeof focusTime);
     console.log(focusTime);
     document.getElementById('focus').innerHTML = focusTime;
-    //.setAttribute("content","testdesc");
-    //show();
-    return false;
+    //set element with id 'focus' to the new focusTime
+    //return false;
+    //was added to stop the function from running, but doesn't appear to be necessary
 }
 document.getElementById('increaseFocusTime').addEventListener('click', increaseFocusTime);
+//listens for increaseFocusTime button to be clicked and then calls increaseFocusTime() function
 show();
 //call show() function
