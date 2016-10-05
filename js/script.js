@@ -1,19 +1,15 @@
 // JavaScript Document
-function show() {
+function getTime() {
     //declare function show
-    var focusTime = 1500000;
-    //declare variable focusTime and set to 1500000 (25 minutes)
-    var focusTimeConvert = focusTime / 1000 / 60;
-    var relaxTime = 300000;
-    //declare variable relaxTime and set to 50000 (5 minutes)
-    var relaxTimeConvert = relaxTime / 1000 / 60;
+    var currentTime = new Date(new Date().getTime()).toLocaleTimeString();
+    //show current time
     
-    var seconds = 00;
-    //doesn't show seconds properly on screen
-    document.getElementById('focus').innerHTML = focusTimeConvert;
-    //find element 'focus' and replace content with focusTimeConvert value, need to find a way to add seconds
-    document.getElementById('relax').innerHTML = relaxTimeConvert;
+    console.log(currentTime);
+    //print 'currentTime' to console.log
+    document.getElementById('focus').innerHTML = currentTime;
     //find element 'relax' and replace content with relaxTime value
+    //show();
+    //call show(); function
 }
 
 function increaseFocusTime() {
@@ -30,21 +26,23 @@ function increaseFocusTime() {
     //return false;
     //was added to stop the function from running, but doesn't appear to be necessary
 }
-
-----
-function pCountDown() {
-    
-  var timer = document.getElementById("logout-timer")
-    , now = new Date()
-    , deadline = new Date(now.getFullYear, now.getMonth, now.getDate, now.getHours, now.getMinutes + 15);
- 
-  timer.innerHTML = countdown(deadline).toString();
-  setInterval(function(){
-    timer.innerHTML = countdown(deadline ).toString();
-  }, 1000);
-}
-----
-document.getElementById('increaseFocusTime').addEventListener('click', increaseFocusTime);
-//listens for increaseFocusTime button to be clicked and then calls increaseFocusTime() function
-show();
+getTime();
 //call show() function
+
+
+// function pCountDown() {
+    
+//   var timer = document.getElementById("logout-timer")
+//     , now = new Date()
+//     , deadline = new Date(now.getFullYear, now.getMonth, now.getDate, now.getHours, now.getMinutes + 15);
+ 
+//   timer.innerHTML = countdown(deadline).toString();
+//   setInterval(function(){
+//     timer.innerHTML = countdown(deadline ).toString();
+//   }, 1000);
+// }
+// ----
+// document.getElementById('increaseFocusTime').addEventListener('click', increaseFocusTime);
+// //listens for increaseFocusTime button to be clicked and then calls increaseFocusTime() function
+// show();
+// //call show() function
