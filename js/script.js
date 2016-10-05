@@ -1,4 +1,5 @@
 // JavaScript Document
+//create a function to get the current time
 function getTime() {
     //declare function show
     var currentTime = new Date(new Date().getTime()).toLocaleTimeString();
@@ -8,8 +9,12 @@ function getTime() {
     //print 'currentTime' to console.log
     document.getElementById('focus').innerHTML = currentTime;
     //find element 'relax' and replace content with relaxTime value
-    //show();
-    //call show(); function
+}
+
+//create a function to count the seconds
+function countTheSeconds() {
+    //declare function countTheSeconds
+    var secondsCounted = getTime + 
 }
 
 function increaseFocusTime() {
