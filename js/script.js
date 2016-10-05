@@ -2,13 +2,21 @@
 //create a function to get the current time
 function currentTime() {
     //declare function show
-    var currentTime = new Date(new Date().getTime()).toLocaleTimeString();
-    //show current time
+    //var currentTime = new Date(new Date().getTime()).toLocaleTimeString();
+    //get current time and convert to string
+    var currentTime = new Date(new Date().getTime());
+    //get current time
+    currentTimeString = currentTime.toLocaleTimeString();
+    //convert currentTime to string
+    var currentTimeSeconds = Date.parse(currentTime);
+    //get current time and convert to seconds since January 1, 1970, 00:00:00 UTC
     
     console.log(currentTime);
+    console.log(currentTimeString);
+    console.log(currentTimeSeconds);
     //print 'currentTime' to console.log
-    document.getElementById('focus').innerHTML = currentTime;
-    //find element 'relax' and replace content with relaxTime value
+    document.getElementById('focus').innerHTML = currentTimeString;
+    //show current time
     return currentTime;
 }
 

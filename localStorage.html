@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>localStorage Testing</title>
+	</head>
+	<body>
+			<div id="result"></div>
+			<div id="focus"></div>
+			<div id="timeObj"></div>
+
+			<script>
+				if (typeof(Storage) !== "undefined") {
+				    // Store
+				    localStorage.setItem("lastname", "jones");
+				    // Retrieve
+				    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+				} else {
+				    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+				}
+
+				function currentTime() {
+				    //declare function show
+				    //var currentTime = new Date(new Date().getTime()).toLocaleTimeString();
+				    //get current time and convert to string
+				    var currentTime = new Date(new Date().getTime());
+				    //get current time
+				    currentTimeString = currentTime.toLocaleTimeString();
+				    //convert currentTime to string
+				    var currentTimeSeconds = Date.parse(currentTime);
+				    //get current time and convert to seconds since January 1, 1970, 00:00:00 UTC
+				    var timeObj = {currentTime: currentTime,currentTimeString: currentTimeString, currentTimeSeconds: currentTimeSeconds};
+				    if (typeof(Storage) !== "undefined") {
+				    // Store
+					    localStorage.setItem("timeObj",timeObj);
+					    // Retrieve
+					    document.getElementById("timeObj").innerHTML = localStorage.getItem("timeObj");
+					} else {
+					    document.getElementById("timeObj").innerHTML = "Sorry, your browser does not support Web Storage...";
+					}
+				    
+				    console.log(currentTime);
+				    console.log(currentTimeString);
+				    console.log(currentTimeSeconds);
+				    console.log(timeObj);
+				    //print 'currentTime' to console.log
+				    document.getElementById('focus').innerHTML = currentTimeString;
+				    //show current time
+				    return currentTime;
+				}
+				currentTime();
+			</script>
+
+	</body>
+</html>
