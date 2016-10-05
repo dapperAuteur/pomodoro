@@ -1,6 +1,6 @@
 // JavaScript Document
 //create a function to get the current time
-function getTime() {
+function currentTime() {
     //declare function show
     var currentTime = new Date(new Date().getTime()).toLocaleTimeString();
     //show current time
@@ -9,12 +9,36 @@ function getTime() {
     //print 'currentTime' to console.log
     document.getElementById('focus').innerHTML = currentTime;
     //find element 'relax' and replace content with relaxTime value
+    return currentTime;
+}
+
+//create variable called focusDuration and set its default value to 25 minutes
+function focusDuration() {
+    var focusDuration = 25;
+    console.log("focusDuration " + focusDuration);
+    document.getElementById('newFocusTime').innerHTML = focusDuration;
+    return focusDuration;
+}
+//create function called playDuration() that declares a variable called playDuration and set its default value to 5 minutes , then returns that value
+function playDuration() {
+    var playDuration = 5;
+    console.log("playDuration " + playDuration);
+    return playDuration;
+}
+
+//create function called setFocusTime() that will add focusDuration value (25 minutes is default value) to currentTime and save it to a variable named focusUntilTime
+function setFocusTime() {
+    var currentTime = document.getElementById('focus').innerHTML;
+    var focusDuration = document.getElementById('newFocusTime').innerHTML;
+    var focusUntilTime = currentTime + focusDuration;
+    console.log("focusUntilTime " + focusUntilTime);
+    return focusUntilTime;
 }
 
 //create a function to count the seconds
 function countTheSeconds() {
     //declare function countTheSeconds
-    var secondsCounted = getTime + 
+    //var secondsCounted = getTime + 
 }
 
 function increaseFocusTime() {
@@ -31,7 +55,10 @@ function increaseFocusTime() {
     //return false;
     //was added to stop the function from running, but doesn't appear to be necessary
 }
-getTime();
+currentTime();
+focusDuration();
+playDuration();
+setFocusTime();
 //call show() function
 
 

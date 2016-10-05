@@ -1,10 +1,13 @@
 "# pomodoro" 
 ##Psuedo code for making pomodoro clock
 ###1: create function called getTime() that gets the current time and save it to a variable named currentTime
+DONE
 
-###1a: create variable called focusDuration and set its default value to 25 minutes
+###1a: create function called focusDuration() that declares a variable called focusDuration and set its default value to 25 minutes, then returns that value
+DONE
 
-###1b: create variable called playDuration and set its default value to 5 minutes
+###1b: create function called playDuration() that declares a variable called playDuration and set its default value to 5 minutes , then returns that value
+DONE
 
 ###2: create function called setFocusTime() that will add focusDuration value (25 minutes is default value) to currentTime and save it to a variable named focusUntilTime
 
