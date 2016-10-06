@@ -10,6 +10,17 @@ function currentTime() {
     //convert currentTime to string
     var currentTimeSeconds = Date.parse(currentTime);
     //get current time and convert to seconds since January 1, 1970, 00:00:00 UTC
+
+    var timeObj = {currentTime: currentTime,currentTimeString: currentTimeString, currentTimeSeconds: currentTimeSeconds};
+                    var timeObjStr = JSON.stringify(timeObj);
+                    if (typeof(Storage) !== "undefined") {
+                    // Store
+                        localStorage.setItem("timeObjStr",timeObjStr);
+                        // Retrieve
+                        document.getElementById("timeObj").innerHTML = localStorage.getItem("timeObjStr");
+                    } else {
+                        document.getElementById("timeObj").innerHTML = "Sorry, your browser does not support Web Storage...";
+                    };
     
     console.log(currentTime);
     console.log(currentTimeString);
