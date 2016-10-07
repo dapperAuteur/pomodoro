@@ -12,15 +12,16 @@ function currentTime() {
     //get current time and convert to seconds since January 1, 1970, 00:00:00 UTC
 
     var timeObj = {currentTime: currentTime,currentTimeString: currentTimeString, currentTimeSeconds: currentTimeSeconds};
-                    var timeObjStr = JSON.stringify(timeObj);
-                    if (typeof(Storage) !== "undefined") {
-                    // Store
-                        localStorage.setItem("timeObjStr",timeObjStr);
-                        // Retrieve
-                        document.getElementById("timeObj").innerHTML = localStorage.getItem("timeObjStr");
-                    } else {
-                        document.getElementById("timeObj").innerHTML = "Sorry, your browser does not support Web Storage...";
-                    };
+    var timeObjStr = JSON.stringify(timeObj);
+        if (typeof(Storage) !== "undefined") {
+        // Store
+            localStorage.setItem("timeObjStr",timeObjStr);
+            // Retrieve
+            document.getElementById("newFocusTime").innerHTML = localStorage.getItem("timeObjStr");
+            document.getElementById("newRelaxTime").innerHTML = localStorage.getItem("timeObjStr");
+        } else {
+            document.getElementById("newFocusTime").innerHTML = "Sorry, your browser does not support Web Storage...";
+        };
     
     console.log(currentTime);
     console.log(currentTimeString);
