@@ -1,66 +1,75 @@
 "# pomodoro" 
 ##Psuedo code for making pomodoro clock
-###1: create function called getTime() that gets the current time and save it to a variable named currentTime
+###1: create function called currentTime() that gets the current time and save it to a variable named currentTime
 DONE
 
-###2: create object called currentTime, put currentTime value into it with key currentTime
+###1a: create object called timeObj, put currentTime value into it with key currentTime
 DONE
 
-
-
-###3: create function called focusDuration() that declares a variable called focusDuration and set its default value to 25 minutes, then returns that value
+###1b: add currentTimeString value into timeObj with key currentTimeString
 DONE
 
-###4: create object called timeObj, put focusDuration value into it with key focusDuration
-
-###5: create function called playDuration() that declares a variable called playDuration and set its default value to 5 minutes , then returns that value
+###1c: add currentTimeSeconds value into timeObj with key currentTimeSeconds
 DONE
 
-###6: create function called setFocusTime() that will add focusDuration value (25 minutes is default value) to currentTime and save it to a variable named focusUntilTime
+###1d: 
 
-###7: create function called countSeconds() that waits 1 second then calls another function that it takes as a parameter
+###2: create function called focusDuration() that declares a variable called focusDuration and set its default value to 25 minutes, then returns that value
+DONE
 
-###8: create function called startFocusTime() that subtracts currentTime from focusUntilTime every second and saves it to variable focusTimeLeft
+###2a: convert focusDuration value to milliseconds and put into timeObj with key focusDurationSeconds
 
-###9: create function called stopFocusTime() that will stop countSeconds()
 
-###10: created function called resetFocusTime() that will call stopFocusTime() and then call setFocusTime()
+###2b: create object called timeObj, put focusDuration value into it with key focusDuration
+DONE
 
-###11: create function called showFocusTimeLeft() to display focusTimeLeft
+###3: create function called playDuration() that declares a variable called playDuration and set its default value to 5 minutes , then returns that value
+DONE
 
-###12: create button to call setFocusTime() and then startFocusTime() function when clicked
+###4: create function called setFocusTime() that will add focusDuration value (25 minutes is default value) to currentTime and save it to a variable named focusUntilTime
 
-###13: countdown the time user wants to focus on work/task
+###5: create function called countSeconds() that waits 1 second then calls another function that it takes as a parameter
 
-###14: create button to call stopFocusTime()
+###6: create function called startFocusTime() that subtracts currentTime from focusUntilTime every second and saves it to variable focusTimeLeft
 
-###15: create button to call resetFocusTime()
+###7: create function called stopFocusTime() that will stop countSeconds()
 
-###16: create function called increaseFocusTime() to increase focusDuration value in 1 minute increments
+###8: created function called resetFocusTime() that will call stopFocusTime() and then call setFocusTime()
 
-###17: create function called decreaseFocusTime() to decrease focusDuration value in 1 minute decrements
+###9: create function called showFocusTimeLeft() to display focusTimeLeft
 
-###18: create function called callSetPlayTime() to call setPlayTime() function when focusTimeLeft value == 00:00
+###10: create button to call setFocusTime() and then startFocusTime() function when clicked
 
-###19: create function called focusTimeIsZero() to alert user that focusTimeLeft value == 00:00
+###11: countdown the time user wants to focus on work/task
 
-###20: create function called setPlayTime() that will add playDuration (5 minutes is default value) to currentTime and save it to a variable named playUntilTime
+###12: create button to call stopFocusTime()
 
-###21: create function called increasePlayTime() to increase playDuration value in 1 minute increments
+###13: create button to call resetFocusTime()
 
-###22: create function called decreasePlayTime() to decrease playDuration value in 1 minute decrements
+###14: create function called increaseFocusTime() to increase focusDuration value in 1 minute increments
 
-###23: create function called startPlayTime() that subtracts currentTime from focusTime every second and saves it to variable playTimeLeft
+###15: create function called decreaseFocusTime() to decrease focusDuration value in 1 minute decrements
 
-###24: create function called showPlayTimeLeft() to display playTimeLeft value as the timer counts down
+###16: create function called callSetPlayTime() to call setPlayTime() function when focusTimeLeft value == 00:00
 
-###25: create function called stopPlayTime() that will stop startPlayTime()
+###17: create function called focusTimeIsZero() to alert user that focusTimeLeft value == 00:00
 
-###26: create function called resetPlayTime() that will call stopPlayTime() and then call setPlayTime()
+###18: create function called setPlayTime() that will add playDuration (5 minutes is default value) to currentTime and save it to a variable named playUntilTime
 
-###27: create button to call stopPlayTime()
+###19: create function called increasePlayTime() to increase playDuration value in 1 minute increments
 
-###28: create button to call resetPlayTime()
+###20: create function called decreasePlayTime() to decrease playDuration value in 1 minute decrements
 
-###29: create a function called playTimeIsZero() that will alert user that playTimeLeft value == 00:00
+###21: create function called startPlayTime() that subtracts currentTime from focusTime every second and saves it to variable playTimeLeft
+
+###22: create function called showPlayTimeLeft() to display playTimeLeft value as the timer counts down
+
+###23: create function called stopPlayTime() that will stop startPlayTime()
+###23a: create button to call stopPlayTime()
+
+###24: create function called resetPlayTime() that will call stopPlayTime() and then call setPlayTime()
+
+###24a: create button to call resetPlayTime()
+
+###27: create a function called playTimeIsZero() that will alert user that playTimeLeft value == 00:00
 
