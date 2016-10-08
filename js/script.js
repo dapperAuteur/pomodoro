@@ -130,7 +130,7 @@ function playDuration() {
 function setFocusTime() {
     var currentTime = document.getElementById('focus').innerHTML;
     var focusDuration = document.getElementById('newFocusTime').innerHTML;
-    var focusUntilTime = currentTime + focusDuration;
+    var focusUntilTime = currentTime + " " + focusDuration;
     console.log("focusUntilTime " + focusUntilTime);
     return focusUntilTime;
 }
