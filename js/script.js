@@ -9,10 +9,11 @@ function focusDuration() {
     console.log("focusDuration " + focusDuration + " focusDurationMS " + focusDurationMS);
     //print the string "focusDuration" concantanated to the focusDuration value to the console
     focusDuration = msToTime(focusDurationMS);
+    //set focusDuration = to focusDuration after going through msToTime function
     document.getElementById('newFocusTime').innerHTML = focusDuration;
-    //Retrieve 'newFocusTime' id from HTML and set it to focusDuration concantanated to ':00';
+    //Retrieve 'newFocusTime' id from HTML and set it to focusDuration
     document.getElementById('focus').innerHTML = focusDuration;
-    //Retrieve 'focus' id from HTML and set it to focusDuration concantanated to ':00'
+    //Retrieve 'focus' id from HTML and set it to focusDuration
     var timeObj = {focusDuration: focusDuration, focusDurationMS: focusDurationMS};
     //create object called timeObj
     //add focusDuration value with key focusDuration into timeObj
@@ -47,11 +48,12 @@ function playDuration() {
     //declare variable called playDurationMS and set it to 5 minutes converted to milliseconds
     console.log("playDuration " + playDuration + " playDurationMS " + playDurationMS);
     //print the string "playDuration" concantanated to the playDuration value to "playDurationMS" to playDurationMS value to the console
-    
-    document.getElementById('newPlayTime').innerHTML = playDuration + ":00";
-    //Retrieve 'newPlayTime' id from HTML and set it to playDuration concantanated to ':00';
-    document.getElementById('play').innerHTML = playDuration + ":00";
-    //Retrieve 'play' id from HTML and set it to playDuration concantanated to ':00'
+    playDuration = msToTime(playDurationMS);
+    //set playDuration = to playDuration after going through msToTime function
+    document.getElementById('newPlayTime').innerHTML = playDuration;
+    //Retrieve 'newPlayTime' id from HTML and set it to playDuration
+    document.getElementById('play').innerHTML = playDuration;
+    //Retrieve 'play' id from HTML and set it to playDuration
     
         if (typeof(Storage) !== "undefined") {
         // check for localStore ability in browser
