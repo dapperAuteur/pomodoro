@@ -12,21 +12,27 @@ DONE
 ###1c: add currentTimeSeconds value into timeObj with key currentTimeSeconds
 DONE
 
-###1d: 
-
+###1d: create a function to set focusTime from newFocusTime
+DONE
+###1e: create a function to set playTime from newPlayTime
+DONE
 ###2: create function called focusDuration() that declares a variable called focusDuration and set its default value to 25 minutes, then returns that value
 DONE
 
 ###2a: convert focusDuration value to milliseconds and put into timeObj with key focusDurationSeconds
+DONE
 
+###2b: create a function to convert milliseconds to hh:mm:ss in playDuration()
+DONE
 
-###2b: create object called timeObj, put focusDuration value into it with key focusDuration
+###2c: create object called timeObj, put focusDuration value into it with key focusDuration
 DONE
 
 ###3: create function called playDuration() that declares a variable called playDuration and set its default value to 5 minutes , then returns that value
 DONE
 
 ###4: create function called setFocusTime() that will add focusDuration value (25 minutes is default value) to currentTime and save it to a variable named focusUntilTime
+OBSELETE
 
 ###5: create function called countSeconds() that waits 1 second then calls another function that it takes as a parameter
 
@@ -47,6 +53,7 @@ DONE
 ###13: create button to call resetFocusTime()
 
 ###14: create function called increaseFocusTime() to increase focusDuration value in 1 minute increments
+DONE
 
 ###15: create function called decreaseFocusTime() to decrease focusDuration value in 1 minute decrements
 
@@ -57,6 +64,7 @@ DONE
 ###18: create function called setPlayTime() that will add playDuration (5 minutes is default value) to currentTime and save it to a variable named playUntilTime
 
 ###19: create function called increasePlayTime() to increase playDuration value in 1 minute increments
+DONE
 
 ###20: create function called decreasePlayTime() to decrease playDuration value in 1 minute decrements
 
