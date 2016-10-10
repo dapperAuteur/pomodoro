@@ -153,6 +153,23 @@ function increaseFocusTime() {
     setFocus(focusTime);
     //set focus time
 }
+function decreaseFocusTime() {
+    //declare a function and call it decreaseFocusTime
+    var focusTime = document.getElementById('newFocusTime').innerHTML;
+    //declare variable, name it focusTime and set it to value of newFocusTime HTML element with id newFocusTime
+    console.log(focusTime);
+    //console log the value of focusTime
+    focusTime--;
+    //decrease focusTime by 1
+    if(focusTime <= 1) {
+        focusTime = 1;
+    };
+    //if focusTime is less than or equal to one, set to one
+    console.log(focusTime);
+    //console log the value of focusTime
+    setFocus(focusTime);
+    //set focus time
+}
 function increasePlayTime() {
     //declare a function and call it increasePlayTime
     var playTime = document.getElementById('newPlayTime').innerHTML;
@@ -161,6 +178,23 @@ function increasePlayTime() {
     //console log the value of playTime
     playTime++;
     //increase playTime by 1
+    console.log(playTime);
+    //console log the value of playTime
+    setPlay(playTime);
+    //set play time
+}
+function decreasePlayTime() {
+    //declare a function and call it decreasePlayTime
+    var playTime = document.getElementById('newPlayTime').innerHTML;
+    //declare variable, name it playTime and set it to value of newPlayTime HTML element with id newPlayTime
+    console.log(playTime);
+    //console log the value of playTime
+    playTime--;
+    //decrease playTime by 1
+    if(playTime <= 1) {
+        playTime = 1;
+    };
+    //if playTime is less than or equal to one, set to one
     console.log(playTime);
     //console log the value of playTime
     setPlay(playTime);
@@ -186,7 +220,11 @@ playDuration();
 // ----
 document.getElementById('increaseFocusTime').addEventListener('click', increaseFocusTime);
 // //listens for increaseFocusTime button to be clicked and then calls increaseFocusTime() function
+document.getElementById('decreaseFocusTime').addEventListener('click', decreaseFocusTime);
+// //listens for decreaseFocusTime button to be clicked and then calls decreaseFocusTime() function
 document.getElementById('increasePlayTime').addEventListener('click', increasePlayTime);
 // //listens for increasePlayTime button to be clicked and then calls increasePlayTime() function
+document.getElementById('decreasePlayTime').addEventListener('click', decreasePlayTime);
+// //listens for decreasePlayTime button to be clicked and then calls decreasePlayTime() function
 // show();
 // //call show() function

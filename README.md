@@ -14,8 +14,16 @@ DONE
 
 ###1d: create a function to set focusTime from newFocusTime
 DONE
-###1e: create a function to set playTime from newPlayTime
+
+###1e: do NOT allow focusTime to go below zero
 DONE
+
+###1f: create a function to set playTime from newPlayTime
+DONE
+
+###1g: do NOT allow playTime to go below zero
+DONE
+
 ###2: create function called focusDuration() that declares a variable called focusDuration and set its default value to 25 minutes, then returns that value
 DONE
 
