@@ -98,26 +98,31 @@ function msToTime(duration) {
     seconds = (seconds < 10) ? "0" + seconds : seconds;
     //if seconds is less than 10 concantenate 0 + seconds and set it to seconds else seconds = seconds
 
-    return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+    return hours + ":" + minutes + ":" + seconds// + "." + milliseconds;
     //return hours contantenated to ':' contantenated to minutes contantenated to ':' contantenated to seconds contantenated to '.' contantenated to milliseconds
 }
 
 var secondsLeft;
+var hhMmSs;// = msToTime(secondsLeft);
+// hhMmSs = msToTime(secondsLeft);
+// document.getElementById('focus').innerHTML = hhMmSs;
 //declare a variable and call it secondsLeft & set it to newFocusTime in HTML
 
 function decreaseSeconds() {
- secondsLeft -= 1
+ secondsLeft -= 1;
+ hhMmSs = msToTime(secondsLeft); 
+ document.getElementById('focus').innerHTML = hhMmSs;
  // Update the timer on the screen to show the new secondsLeft
 }
 
 function startTimer() {
     focus = document.getElementById('newFocusTime').innerHTML // Or some other value
-    secondsLeft = focus * 60;
+    secondsLeft = focus * 60 * 1000;
+    //hhMmSs = msToTime(secondsLeft);
 
     var countDown = setInterval(function() { decreaseSeconds();
         console.log(secondsLeft);
-        console.log(msToTime(secondsLeft));
-        document.getElementById('focus').innerHTML = msToTime(secondsLeft);
+        // console.log(hhMmSs);
         if (secondsLeft <= 0) {
             //if all values are 0, run the following code
           clearInterval(countDown);
@@ -126,8 +131,6 @@ function startTimer() {
           //set focusTimeLeft to 0
         }
     }, 1000);
-
-
 }
 
 //create a function to start counting seconds
