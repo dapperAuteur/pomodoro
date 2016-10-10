@@ -1,47 +1,4 @@
 // JavaScript Document
-//create a function to get the current time
-// function currentTime() {
-//     //declare function show
-//     //var currentTime = new Date(new Date().getTime()).toLocaleTimeString();
-//     //get current time and convert to string
-//     var currentTime = new Date(new Date().getTime());
-//     //get current time
-//     currentTimeString = currentTime.toLocaleTimeString();
-//     //convert currentTime to string
-//     var currentTimeSeconds = Date.parse(currentTime);
-//     //get current time and convert to seconds since January 1, 1970, 00:00:00 UTC
-
-//     var timeObj = {currentTime: currentTime,currentTimeString: currentTimeString, currentTimeSeconds: currentTimeSeconds};
-//     //create object called timeObj
-//     //add currentTime value with key currentTime into timeObj
-//     //add currentTimeString value with key currentTimeString into timeObj
-//     //add currentTimeSeconds value with key currentTimeSeconds into timeObj
-//     var timeObjStr = JSON.stringify(timeObj);
-//     //declare variable timeObjStr and set it to timeObj converted to JSON string
-//         if (typeof(Storage) !== "undefined") {
-//         // check for localStore ability in browser
-//             localStorage.setItem("timeObjStr",timeObjStr);
-//             //store timeObjStr value with key timeObjStr in localStorage
-//             document.getElementById("newFocusTime").innerHTML = localStorage.getItem("timeObjStr");
-//             // Retrieve timeObjStr from localStorage and set it to HTML id newFocusTime
-//             document.getElementById("newRelaxTime").innerHTML = localStorage.getItem("timeObjStr");
-//             //Retrieve newRelaxTime from HTML and set it to localStorage object "timeObjStr"
-//         } else {//if Storage == "undefined"
-//             document.getElementById("newFocusTime").innerHTML = "Sorry, your browser does not support Web Storage...";
-//             //Retrieve "newFocusTime" from HTML and set it to the string "Sorry, your browser does not support Web Storage..."
-//         };
-    
-//     console.log(currentTime);
-//     console.log(currentTimeString);
-//     console.log(currentTimeSeconds);
-//     //print 'currentTime', 'currentTimeString', 'currentTimeSeconds' to console.log
-//     document.getElementById('focus').innerHTML = currentTimeString;
-//     //Retrieve 'focus' id from HTML and set it to currentTimeString
-//     //show current time
-//     return currentTime;
-//     //return currentTime to function caller
-// }
-
 //create variable called focusDuration and set its default value to 25 minutes
 function focusDuration() {
     //Declare function called focusDuration
@@ -51,9 +8,10 @@ function focusDuration() {
     //declare variable called focusDurationMS and set it to 25 minutes converted to milliseconds
     console.log("focusDuration " + focusDuration + " focusDurationMS " + focusDurationMS);
     //print the string "focusDuration" concantanated to the focusDuration value to the console
-    document.getElementById('newFocusTime').innerHTML = focusDuration + ":00";
+    focusDuration = msToTime(focusDurationMS);
+    document.getElementById('newFocusTime').innerHTML = focusDuration;
     //Retrieve 'newFocusTime' id from HTML and set it to focusDuration concantanated to ':00';
-    document.getElementById('focus').innerHTML = focusDuration + ":00";
+    document.getElementById('focus').innerHTML = focusDuration;
     //Retrieve 'focus' id from HTML and set it to focusDuration concantanated to ':00'
     var timeObj = {focusDuration: focusDuration, focusDurationMS: focusDurationMS};
     //create object called timeObj
@@ -124,6 +82,28 @@ function playDuration() {
     console.log(timeObjStr);
     //print timeObjStr to console
     return playDuration;
+}
+//create a function to convert milliseconds to hh:mm:ss:ms
+function msToTime(duration) {
+    //declare function name it msTotime and give it an argument called duration
+    var milliseconds = parseInt((duration % 1000) / 100);
+    //declare a variable and name it milliseconds, set it to remainder of duration divided by 1000, then divide that by 100, then apply the parseInt function that accepts a string and returns an integer
+    var seconds = parseInt((duration / 1000) % 60);
+    //declare a variable and name it seconds, set it to duration divided by 1000, the result is then divided by 60 and apply the parseInt to the remainder
+    var minutes = parseInt((duration / (1000 * 60)) % 60);
+    //declare a variable and name it minutes, set it to duration divided by (1000 * 60), the result is then divided by 60 and apply the parseInt to the remainder
+    var hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+    //declare a variable and name it hours, set it to duration divided by (1000 * 60 * 60), the result is then divided by 24 and apply the parseInt to the remainder
+
+    hours = (hours < 10) ? "0" + hours : hours;
+    //if hours is less than 10 concantenate 0 + hours and set it to hours else hours = hours
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    //if minutes is less than 10 concantenate 0 + minutes and set it to minutes else minutes = minutes
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+    //if seconds is less than 10 concantenate 0 + seconds and set it to seconds else seconds = seconds
+
+    return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+    //return hours contantenated to ':' contantenated to minutes contantenated to ':' contantenated to seconds contantenated to '.' contantenated to milliseconds
 }
 
 //create function called setFocusTime() that will add focusDuration value (25 minutes is default value) to currentTime and save it to a variable named focusUntilTime
