@@ -81,7 +81,7 @@ function playDuration() {
 }
 //create a function to convert milliseconds to hh:mm:ss:ms
 function msToTime(duration) {
-    //declare function name it msTotime and give it an argument called duration
+    //declare function name it msToTime and give it an argument called duration
     var milliseconds = parseInt((duration % 1000) / 100);
     //declare a variable and name it milliseconds, set it to remainder of duration divided by 1000, then divide that by 100, then apply the parseInt function that accepts a string and returns an integer
     var seconds = parseInt((duration / 1000) % 60);
@@ -102,47 +102,75 @@ function msToTime(duration) {
     //return hours contantenated to ':' contantenated to minutes contantenated to ':' contantenated to seconds contantenated to '.' contantenated to milliseconds
 }
 
-//create a function to start counting seconds
-function startCountTheSeconds() {
-    //declare function countTheSeconds
-    var focusTime = document.getElementById('newFocusTime').innerHTML;
-    //declare a variable and call it focusTime and set it to focusTime in HTML id newFocusTime
-    focusTimeSeconds = focusTime * 60 * 1000;
-    //convert focusTime to seconds
-    // var counting = 0;
-    // //declare a variable called 'counting' and set it to 0, this determines if timer is going or stopped
-    var countingTheSeconds = 0;
-    //declare a variable called 'counting' and set it to 0
-    var t = focusTimeSeconds;
-    //declare a variable called 't' and set it to 'focusTimeSeconds'
-    var focusTimeLeft = t - countingTheSeconds;
-    //declare a variable called focusTimeLeft and set it to 't' minus 'countingTheSeconds'
-    //var myVar = setInterval(function(){ countingTheSeconds++ }, 1000);
-    //declare a variable myVar, set it to the function that increments countingTheSeconds every second
-    // if(counting = 1) {
-    //     //if counting is 1 therefore true, run the following code
-    //     countingTheSeconds++;
-    //     //increment countingTheSeconds
-    //     var myVar = setInterval(function(){ countingTheSeconds++ }, 1000);
-    //     //declare a variable myVar, set it to the function that increments countingTheSeconds every second
-    // }else{
-    //     //else execute the following code
-    //     counting = 0;
-    //     //counting is 0, therefore false, and stop timer from running
-    // }
-    if (focusTimeLeft <= 0) {
-        //if all values are 0, run the following code
-      clearInterval(timeinterval);
-      //clear
-      focusTimeLeft = 0;
-      //set focusTimeLeft to 0
-    }
-    var focusTimeLeftHH = msToTime(focusTimeLeft);
-    //declare variable, name it focusTimeLeftHH, set it to focusTimeLeft after converting it to hh:mm:ss:ms
-    document.getElementById('focus').innerHTML = focusTimeLeftHH;
-    //get element with id of 'focus' and set it to focusTimeLeftHH
-    setInterval(function(){ countingTheSeconds++ }, 1000);
+var secondsLeft;
+//declare a variable and call it secondsLeft & set it to newFocusTime in HTML
+
+function decreaseSeconds() {
+ secondsLeft -= 1
+ // Update the timer on the screen to show the new secondsLeft
 }
+
+function startTimer() {
+    focus = document.getElementById('newFocusTime').innerHTML // Or some other value
+    secondsLeft = focus * 60;
+
+    var countDown = setInterval(function() { decreaseSeconds();
+        console.log(secondsLeft);
+        console.log(msToTime(secondsLeft));
+        document.getElementById('focus').innerHTML = msToTime(secondsLeft);
+        if (secondsLeft <= 0) {
+            //if all values are 0, run the following code
+          clearInterval(countDown);
+          //clear
+          focusTimeLeft = 0;
+          //set focusTimeLeft to 0
+        }
+    }, 1000);
+
+
+}
+
+//create a function to start counting seconds
+// function startCountTheSeconds() {
+//     //declare function countTheSeconds
+//     var focusTime = document.getElementById('newFocusTime').innerHTML;
+//     //declare a variable and call it focusTime and set it to focusTime in HTML id newFocusTime
+//     focusTimeSeconds = focusTime * 60 * 1000;
+//     //convert focusTime to seconds
+//     // var counting = 0;
+//     // //declare a variable called 'counting' and set it to 0, this determines if timer is going or stopped
+//     var countingTheSeconds = 0;
+//     //declare a variable called 'counting' and set it to 0
+//     var t = focusTimeSeconds;
+//     //declare a variable called 't' and set it to 'focusTimeSeconds'
+//     var focusTimeLeft = t - countingTheSeconds;
+//     //declare a variable called focusTimeLeft and set it to 't' minus 'countingTheSeconds'
+//     //var myVar = setInterval(function(){ countingTheSeconds++ }, 1000);
+//     //declare a variable myVar, set it to the function that increments countingTheSeconds every second
+//     // if(counting = 1) {
+//     //     //if counting is 1 therefore true, run the following code
+//     //     countingTheSeconds++;
+//     //     //increment countingTheSeconds
+//     //     var myVar = setInterval(function(){ countingTheSeconds++ }, 1000);
+//     //     //declare a variable myVar, set it to the function that increments countingTheSeconds every second
+//     // }else{
+//     //     //else execute the following code
+//     //     counting = 0;
+//     //     //counting is 0, therefore false, and stop timer from running
+//     // }
+//     if (focusTimeLeft <= 0) {
+//         //if all values are 0, run the following code
+//       clearInterval(timeinterval);
+//       //clear
+//       focusTimeLeft = 0;
+//       //set focusTimeLeft to 0
+//     }
+//     var focusTimeLeftHH = msToTime(focusTimeLeft);
+//     //declare variable, name it focusTimeLeftHH, set it to focusTimeLeft after converting it to hh:mm:ss:ms
+//     document.getElementById('focus').innerHTML = focusTimeLeftHH;
+//     //get element with id of 'focus' and set it to focusTimeLeftHH
+//     setInterval(function(){ countingTheSeconds++ }, 1000);
+// }
 
 //create a function to stop counting seconds
 function stopCountTheSeconds() {
@@ -220,7 +248,7 @@ document.getElementById('increasePlayTime').addEventListener('click', increasePl
 // //listens for increasePlayTime button to be clicked and then calls increasePlayTime() function
 document.getElementById('decreasePlayTime').addEventListener('click', decreasePlayTime);
 // //listens for decreasePlayTime button to be clicked and then calls decreasePlayTime() function
-document.getElementById('startTime').addEventListener('click',startCountTheSeconds);
-// //listens for 'startTime' button to be clicked and then calls startCountingTheSeconds() function
+document.getElementById('startTime').addEventListener('click',startTimer);
+// //listens for 'startTime' button to be clicked and then calls startTimer() function
 // document.getElementById('stopTime').addEventListener('click', stopCountTheSeconds);
 //listens for stopTime button to be clicked and then calls stopCountingTheSeconds() function
