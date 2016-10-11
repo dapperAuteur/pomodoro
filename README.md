@@ -42,9 +42,10 @@ DONE
 ###4: create function called setFocusTime() that will add focusDuration value (25 minutes is default value) to currentTime and save it to a variable named focusUntilTime
 OBSELETE
 
-###5: create function called countSeconds() that waits 1 second then calls another function that it takes as a parameter
+###5: create function called startTimer() that waits 1 second then calls another function that it takes as a parameter
+DONE
 
-###6: create function called startFocusTime() that subtracts currentTime from focusUntilTime every second and saves it to variable focusTimeLeft
+###6: create function called decreaseSeconds() that subtracts currentTime from focusUntilTime every second and saves it to variable focusTimeLeft
 
 ###7: create function called stopFocusTime() that will stop countSeconds()
 

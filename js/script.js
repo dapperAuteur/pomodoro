@@ -110,9 +110,17 @@ var hhMmSs;// = msToTime(secondsLeft);
 
 function decreaseSeconds() {
  secondsLeft -= 1;
- hhMmSs = msToTime(secondsLeft); 
+ //hhMmSs = msToTime(secondsLeft); 
  document.getElementById('focus').innerHTML = hhMmSs;
+ console.log(secondsLeft);
+ // return hhMmSs;
  // Update the timer on the screen to show the new secondsLeft
+}
+
+function convertSecondsLeft() {
+    hhMmSs = msToTime(secondsLeft);
+    console.log(secondsLeft);
+    console.log(hhMmSs);
 }
 
 function startTimer() {
@@ -120,8 +128,11 @@ function startTimer() {
     secondsLeft = focus * 60 * 1000;
     //hhMmSs = msToTime(secondsLeft);
 
-    var countDown = setInterval(function() { decreaseSeconds();
+    var countDown = setInterval(function() {
+        decreaseSeconds();
+        convertSecondsLeft();
         console.log(secondsLeft);
+        console.log(hhMmSs);
         // console.log(hhMmSs);
         if (secondsLeft <= 0) {
             //if all values are 0, run the following code
