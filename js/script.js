@@ -2,82 +2,20 @@
 //create variable called focusDuration and set its default value to 25 minutes
 function focusDuration() {
     //Declare function called focusDuration
-    var focus = 25;
-    //declare variable called focus and set it to 25
-    var focusDurationMS = focus * 60 * 1000;
-    //declare variable called focusDurationMS and set it to 25 minutes converted to milliseconds
-    var focusDuration = msToTime(focusDurationMS);
-    //set focusDuration = to focusDuration after going through msToTime function
-    console.log("focus " + focus + " focusDuration " + focusDuration + " focusDurationMS " + focusDurationMS);
-    //print the string "focus" concantenated to focus value  "focusDuration" concantanated to the focusDuration value concantanated to "focusDurationMS" string concantanated to focusDurationMS value to the console
-    document.getElementById('newFocusTime').innerHTML = focus;
-    //Retrieve 'newFocusTime' id from HTML and set it to focusDuration
-    document.getElementById('focus').innerHTML = focusDuration;
-    //Retrieve 'focus' id from HTML and set it to focusDuration
-    var timeObj = {focus: focus, focusDuration: focusDuration, focusDurationMS: focusDurationMS};
-    //create object called timeObj
-    //add focus value with key focus into timeObj
-    //add focusDuration value with key focusDuration into timeObj
-    //add focusDurationMS value with key focusDurationMS into timeObj
-    var timeObjStr = JSON.stringify(timeObj);
-    //declare variable timeObjStr and set it to timeObj converted to JSON string
-        if (typeof(Storage) !== "undefined") {
-        // check for localStore ability in browser
-            localStorage.setItem("timeObjStr",timeObjStr);
-            //store timeObjStr value with key timeObjStr in localStorage
-        } else {//if Storage == "undefined"
-            document.getElementById("newFocusTime").innerHTML = "Sorry, your browser does not support Web Storage...";
-            //Retrieve "newFocusTime" from HTML and set it to the string "Sorry, your browser does not support Web Storage..."
-        };
 }
 
 //create a function to set focusTime from newFocusTime
 function setFocus(focusTime) {
-    var focus = focusTime;
-    //Retrieve 'newFocusTime' id from HTML and set it to focus
-    var focusDurationMS = focus * 60 * 1000;
-    //declare variable called focusDurationMS and set it to focus converted to milliseconds
-    var focusDuration = msToTime(focusDurationMS);
-    //set focusDuration = to focusDuration after going through msToTime function
-
-    console.log("focus " + focus + " focusDuration " + focusDuration + " focusDurationMS " + focusDurationMS);
-    //print the string "focus" concantenated to focus value  "focusDuration" concantanated to the focusDuration value concantanated to "focusDurationMS" string concantanated to focusDurationMS value to the console
-    document.getElementById('newFocusTime').innerHTML = focus;
-    //Retrieve 'focus' id from HTML and set it to focus
-    document.getElementById('focus').innerHTML = focusDuration;
-    //Retrieve 'focus' id from HTML and set it to focusDuration
+    
 }
 //create a function to set playTime from newPlayTime
 function setPlay(playTime) {
-    var play = playTime;
-    //Retrieve 'newPlayTime' id from HTML and set it to play
-    var playDurationMS = play * 60 * 1000;
-    //declare variable called playDurationMS and set it to play converted to milliseconds
-    var playDuration = msToTime(playDurationMS);
-    //set playDuration = to playDuration after going through msToTime function
-
-    console.log("play " + play + " playDuration " + playDuration + " playDurationMS " + playDurationMS);
-    //print the string "play" concantenated to play value  playsDuration" concantanated to the playDuration value concantanated to "playDurationMS" string concantanated to playDurationMS value to the console
-    document.getElementById('newPlayTime').innerHTML = play;
-    //Retrieve 'play' id from HTML and set it to play
-    document.getElementById('play').innerHTML = playDuration;
-    //Retrieve 'play' id from HTML and set it to playDuration
+    
 }
 //create function called playDuration() that declares a variable called playDuration and set its default value to 5 minutes , then returns that value
 function playDuration() {
     //Declare function called playDuration
-    var play = 5;
-    //declare variable called play and set it to 5
-    var playDurationMS = play * 60 * 1000;
-    //declare variable called playDurationMS and set it to 5 minutes converted to milliseconds
-    playDuration = msToTime(playDurationMS);
-    //set playDuration = to playDuration after going through msToTime function
-    console.log("play " + play + " playDuration " + playDuration + " playDurationMS " + playDurationMS);
-    //print the string "play" concantenated to play value "playDuration" concantanated to the playDuration value to "playDurationMS" to playDurationMS value to the console
-    document.getElementById('newPlayTime').innerHTML = play;
-    //Retrieve 'newPlayTime' id from HTML and set it to playDuration
-    document.getElementById('play').innerHTML = playDuration;
-    //Retrieve 'play' id from HTML and set it to playDuration
+    
 }
 //create a function to convert milliseconds to hh:mm:ss:ms
 function msToTime(duration) {
@@ -103,11 +41,6 @@ function msToTime(duration) {
 }
 
 var secondsLeft;
-var hhMmSs;// = msToTime(secondsLeft);
-// hhMmSs = msToTime(secondsLeft);
-// document.getElementById('focus').innerHTML = hhMmSs;
-//declare a variable and call it secondsLeft & set it to newFocusTime in HTML
-var timerRunning = 0;
 
 function decreaseSeconds() {
  secondsLeft -= 1;
@@ -120,9 +53,6 @@ function decreaseSeconds() {
 }
 
 function convertSecondsLeft() {
-    hhMmSs = msToTime(secondsLeft);
-    console.log(secondsLeft);
-    console.log(hhMmSs);
 
 }
 
@@ -154,63 +84,12 @@ function startTimer() {
     
 }
 function stopResetButton() {
-    var stopResetButton = '<button type="button" class="btn btn-danger" id="resetTime">Reset Time</button>';
-    if (timerRunning == 0) {
-        document.getElementById('stopResetButton').innerHTML = stopResetButton;
-        
-        } else {
-        stopResetButton = '<button type="button" class="btn btn-danger" id="stopTime">Stop Time</button>';
-        document.getElementById('stopResetButton').innerHTML = stopResetButton;
-    }
-}
 
-//create a function to start counting seconds
-// function startCountTheSeconds() {
-//     //declare function countTheSeconds
-//     var focusTime = document.getElementById('newFocusTime').innerHTML;
-//     //declare a variable and call it focusTime and set it to focusTime in HTML id newFocusTime
-//     focusTimeSeconds = focusTime * 60 * 1000;
-//     //convert focusTime to seconds
-//     // var counting = 0;
-//     // //declare a variable called 'counting' and set it to 0, this determines if timer is going or stopped
-//     var countingTheSeconds = 0;
-//     //declare a variable called 'counting' and set it to 0
-//     var t = focusTimeSeconds;
-//     //declare a variable called 't' and set it to 'focusTimeSeconds'
-//     var focusTimeLeft = t - countingTheSeconds;
-//     //declare a variable called focusTimeLeft and set it to 't' minus 'countingTheSeconds'
-//     //var myVar = setInterval(function(){ countingTheSeconds++ }, 1000);
-//     //declare a variable myVar, set it to the function that increments countingTheSeconds every second
-//     // if(counting = 1) {
-//     //     //if counting is 1 therefore true, run the following code
-//     //     countingTheSeconds++;
-//     //     //increment countingTheSeconds
-//     //     var myVar = setInterval(function(){ countingTheSeconds++ }, 1000);
-//     //     //declare a variable myVar, set it to the function that increments countingTheSeconds every second
-//     // }else{
-//     //     //else execute the following code
-//     //     counting = 0;
-//     //     //counting is 0, therefore false, and stop timer from running
-//     // }
-//     if (focusTimeLeft <= 0) {
-//         //if all values are 0, run the following code
-//       clearInterval(timeinterval);
-//       //clear
-//       focusTimeLeft = 0;
-//       //set focusTimeLeft to 0
-//     }
-//     var focusTimeLeftHH = msToTime(focusTimeLeft);
-//     //declare variable, name it focusTimeLeftHH, set it to focusTimeLeft after converting it to hh:mm:ss:ms
-//     document.getElementById('focus').innerHTML = focusTimeLeftHH;
-//     //get element with id of 'focus' and set it to focusTimeLeftHH
-//     setInterval(function(){ countingTheSeconds++ }, 1000);
-// }
+}
 
 //create a function to stop counting seconds
 function stopCountTheSeconds() {
     //declare a function and call it stopCountTheSeconds
-    timerRunning = 0;
-    console.log(timerRunning);
 
 }
 
