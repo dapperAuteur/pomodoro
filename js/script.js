@@ -130,7 +130,9 @@ function startTimer() {
     focus = document.getElementById('newFocusTime').innerHTML // Or some other value
     secondsLeft = focus * 60 * 1000;
     //hhMmSs = msToTime(secondsLeft);
+
     timerRunning = 1;
+    stopResetButton();
     console.log(timerRunning);
     if (timerRunning == 1) {
         var countDown = setInterval(function() {
@@ -146,9 +148,11 @@ function startTimer() {
           focusTimeLeft = 0;
           //set focusTimeLeft to 0
             }
-        }, 1);
+        }, 10);
     } else {
         stopCountTheSeconds();
+        timerRunning = 0;
+        stopResetButton();
     }
 
     
@@ -156,55 +160,13 @@ function startTimer() {
 function stopResetButton() {
     var stopResetButton = '<button type="button" class="btn btn-danger" id="resetTime">Reset Time</button>';
     if (timerRunning == 0) {
-        document.getElementById('stopResetButton').innerHTML = stopResetButton;
+        document.getElementById('stopTime').innerHTML = stopResetButton;
         
         } else {
         stopResetButton = '<button type="button" class="btn btn-danger" id="stopTime">Stop Time</button>';
-        document.getElementById('stopResetButton').innerHTML = stopResetButton;
+        document.getElementById('stopTime').innerHTML = stopResetButton;
     }
 }
-
-//create a function to start counting seconds
-// function startCountTheSeconds() {
-//     //declare function countTheSeconds
-//     var focusTime = document.getElementById('newFocusTime').innerHTML;
-//     //declare a variable and call it focusTime and set it to focusTime in HTML id newFocusTime
-//     focusTimeSeconds = focusTime * 60 * 1000;
-//     //convert focusTime to seconds
-//     // var counting = 0;
-//     // //declare a variable called 'counting' and set it to 0, this determines if timer is going or stopped
-//     var countingTheSeconds = 0;
-//     //declare a variable called 'counting' and set it to 0
-//     var t = focusTimeSeconds;
-//     //declare a variable called 't' and set it to 'focusTimeSeconds'
-//     var focusTimeLeft = t - countingTheSeconds;
-//     //declare a variable called focusTimeLeft and set it to 't' minus 'countingTheSeconds'
-//     //var myVar = setInterval(function(){ countingTheSeconds++ }, 1000);
-//     //declare a variable myVar, set it to the function that increments countingTheSeconds every second
-//     // if(counting = 1) {
-//     //     //if counting is 1 therefore true, run the following code
-//     //     countingTheSeconds++;
-//     //     //increment countingTheSeconds
-//     //     var myVar = setInterval(function(){ countingTheSeconds++ }, 1000);
-//     //     //declare a variable myVar, set it to the function that increments countingTheSeconds every second
-//     // }else{
-//     //     //else execute the following code
-//     //     counting = 0;
-//     //     //counting is 0, therefore false, and stop timer from running
-//     // }
-//     if (focusTimeLeft <= 0) {
-//         //if all values are 0, run the following code
-//       clearInterval(timeinterval);
-//       //clear
-//       focusTimeLeft = 0;
-//       //set focusTimeLeft to 0
-//     }
-//     var focusTimeLeftHH = msToTime(focusTimeLeft);
-//     //declare variable, name it focusTimeLeftHH, set it to focusTimeLeft after converting it to hh:mm:ss:ms
-//     document.getElementById('focus').innerHTML = focusTimeLeftHH;
-//     //get element with id of 'focus' and set it to focusTimeLeftHH
-//     setInterval(function(){ countingTheSeconds++ }, 1000);
-// }
 
 //create a function to stop counting seconds
 function stopCountTheSeconds() {
@@ -279,14 +241,14 @@ playDuration();
 stopResetButton();
 
 document.getElementById('increaseFocusTime').addEventListener('click', increaseFocusTime);
-// //listens for increaseFocusTime button to be clicked and then calls increaseFocusTime() function
+//listens for increaseFocusTime button to be clicked and then calls increaseFocusTime() function
 document.getElementById('decreaseFocusTime').addEventListener('click', decreaseFocusTime);
-// //listens for decreaseFocusTime button to be clicked and then calls decreaseFocusTime() function
+//listens for decreaseFocusTime button to be clicked and then calls decreaseFocusTime() function
 document.getElementById('increasePlayTime').addEventListener('click', increasePlayTime);
-// //listens for increasePlayTime button to be clicked and then calls increasePlayTime() function
+//listens for increasePlayTime button to be clicked and then calls increasePlayTime() function
 document.getElementById('decreasePlayTime').addEventListener('click', decreasePlayTime);
-// //listens for decreasePlayTime button to be clicked and then calls decreasePlayTime() function
+//listens for decreasePlayTime button to be clicked and then calls decreasePlayTime() function
 document.getElementById('startTime').addEventListener('click',startTimer);
-// //listens for 'startTime' button to be clicked and then calls startTimer() function
-document.getElementById('stopTime').addEventListener('click', stopCountTheSeconds);
+//listens for 'startTime' button to be clicked and then calls startTimer() function
+document.getElementById('stopTime').addEventListener('click',stopCountTheSeconds);
 //listens for stopTime button to be clicked and then calls stopCountTheSeconds() function
