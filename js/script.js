@@ -18,15 +18,30 @@
 // }
 function getCurrentTime() {
     var currentdate = new Date();
-    //declare variable  
+    //declare variable
           var datetime = 
                  currentdate.getHours() + ":"  
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
 
         //document.write(datetime);
+        hours = currentdate.getHours();
+        minutes = currentdate.getMinutes(); 
+        seconds = currentdate.getSeconds();
+    hours = (hours < 10) ? "0" + hours : hours;
+    //if hours is less than 10 concantenate 0 + hours and set it to hours else hours = hours
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    //if minutes is less than 10 concantenate 0 + minutes and set it to minutes else minutes = minutes
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+    //if seconds is less than 10 concantenate 0 + seconds and set it to seconds else seconds = seconds
+    var datetime0 = hours + ":" + minutes + ":" + seconds;
+
+    //return hours + ":" + minutes + ":" + seconds;
+    //return hours contantenated to ':' contantenated to minutes contantenated to ':' contantenated to seconds contantenated to '.' contantenated to milliseconds
+    console.log('hours + ":" + minutes + ":" + seconds ' + hours + ":" + minutes + ":" + seconds);
     console.log('currentdate ' + currentdate);
     console.log('datetime ' + datetime);
+    document.getElementById('currentTime').innerHTML = datetime0;
 }
 getCurrentTime();
 function countDown(newDate) {
