@@ -1,49 +1,49 @@
 "# pomodoro" 
 ##Psuedo code for making pomodoro clock
 ###1: create function called currentTime() that gets the current time and save it to a variable named currentTime
-DONE
+
 
 ###1a: create object called timeObj, put currentTime value into it with key currentTime
-DONE
+
 
 ###1b: add currentTimeString value into timeObj with key currentTimeString
-DONE
+
 
 ###1c: add currentTimeSeconds value into timeObj with key currentTimeSeconds
-DONE
+
 
 ###1d: create a function to set focusTime from newFocusTime
-DONE
+
 
 ###1e: do NOT allow focusTime to go below zero
-DONE
+
 
 ###1f: create a function to set playTime from newPlayTime
-DONE
+
 
 ###1g: do NOT allow playTime to go below zero
-DONE
+
 
 ###2: create function called focusDuration() that declares a variable called focusDuration and set its default value to 25 minutes, then returns that value
-DONE
+
 
 ###2a: convert focusDuration value to milliseconds and put into timeObj with key focusDurationSeconds
-DONE
+
 
 ###2b: create a function to convert milliseconds to hh:mm:ss in playDuration()
-DONE
+
 
 ###2c: create object called timeObj, put focusDuration value into it with key focusDuration
-DONE
+
 
 ###3: create function called playDuration() that declares a variable called playDuration and set its default value to 5 minutes , then returns that value
-DONE
+
 
 ###4: create function called setFocusTime() that will add focusDuration value (25 minutes is default value) to currentTime and save it to a variable named focusUntilTime
 OBSELETE
 
 ###5: create function called startTimer() that waits 1 second then calls another function that it takes as a parameter
-DONE
+
 
 ###6: create function called decreaseSeconds() that subtracts currentTime from focusUntilTime every second and saves it to variable focusTimeLeft
 
@@ -62,7 +62,7 @@ DONE
 ###13: create button to call resetFocusTime()
 
 ###14: create function called increaseFocusTime() to increase focusDuration value in 1 minute increments
-DONE
+
 
 ###15: create function called decreaseFocusTime() to decrease focusDuration value in 1 minute decrements
 
@@ -73,7 +73,7 @@ DONE
 ###18: create function called setPlayTime() that will add playDuration (5 minutes is default value) to currentTime and save it to a variable named playUntilTime
 
 ###19: create function called increasePlayTime() to increase playDuration value in 1 minute increments
-DONE
+
 
 ###20: create function called decreasePlayTime() to decrease playDuration value in 1 minute decrements
 

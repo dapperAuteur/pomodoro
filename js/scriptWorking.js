@@ -10,6 +10,21 @@ function focusDuration() {
     //must convert ms to int from string using parseInt(ms)
 }
 
+//create a function to set focusTime from newFocusTime
+function setFocus(focusTime) {
+    var d = new Date();
+    var stopFocus = d.getTime();
+    var setFocus = 0;
+    console.log(stopFocus);
+    console.log("stopFocus " + stopFocus);
+    // document.getElementById('stopFocusMS').innerHTML = stopFocus;
+    //must convert ms to int from string using parseInt(ms)
+}
+setFocus();
+//create a function to set playTime from newPlayTime
+function setPlay(playTime) {
+    
+}
 //create function called playDuration() that declares a variable called playDuration and set its default value to 5 minutes , then returns that value
 function playDuration() {
     //Declare function called playDuration
@@ -43,12 +58,66 @@ function msToTime(duration) {
     //return hours contantenated to ':' contantenated to minutes contantenated to ':' contantenated to seconds contantenated to '.' contantenated to milliseconds
 }
 
+var secondsLeft;
+
+function decreaseSeconds() {
+ secondsLeft -= 1;
+ hhMmSs = msToTime(secondsLeft); 
+ document.getElementById('focus').innerHTML = hhMmSs;
+ console.log(secondsLeft);
+ // return hhMmSs;
+ // Update the timer on the screen to show the new secondsLeft
+ return secondsLeft;
+}
+
+function convertSecondsLeft() {
+
+}
+
+function startTimer() {
+    focus = document.getElementById('newFocusTime').innerHTML // Or some other value
+    secondsLeft = focus * 60 * 1000;
+    //hhMmSs = msToTime(secondsLeft);
+    timerRunning = 1;
+    console.log(timerRunning);
+    if (timerRunning == 1) {
+        var countDown = setInterval(function() {
+        decreaseSeconds();
+        
+        if (secondsLeft <= 0) {
+            //if all values are 0, run the following code
+          clearInterval(countDown);
+          //clear
+          focusTimeLeft = 0;
+          //set focusTimeLeft to 0
+            }
+        }, 1);
+    } else {
+        
+    }
+
+    
+}
+function stopResetButton() {
+
+}
+
+//create a function to stop counting seconds
+function stopCountTheSeconds() {
+    //declare a function and call it stopCountTheSeconds
+
+}
+
 function increaseFocusTime() {
     //declare a function and call it increaseFocusTime
     var focusTime = document.getElementById('newFocusTime').innerHTML;
     //declare variable, name it focusTime and set it to value of newFocusTime HTML element with id newFocusTime
+    // console.log(focusTime);
+    //console log the value of focusTime
     focusTime++;
     //increase focusTime by 1
+    // console.log(focusTime);
+    //console log the value of focusTime
     document.getElementById('newFocusTime').innerHTML = focusTime;
     //set 'newFocusTime' element in HTML to incremented 'focusTime'
 }
@@ -56,12 +125,16 @@ function decreaseFocusTime() {
     //declare a function and call it decreaseFocusTime
     var focusTime = document.getElementById('newFocusTime').innerHTML;
     //declare variable, name it focusTime and set it to value of newFocusTime HTML element with id newFocusTime
+    // console.log(focusTime);
+    //console log the value of focusTime
     focusTime--;
     //decrease focusTime by 1
     if(focusTime <= 1) {
         focusTime = 1;
     };
     //if focusTime is less than or equal to one, set to one
+    // console.log(focusTime);
+    //console log the value of focusTime
     document.getElementById('newFocusTime').innerHTML = focusTime;
     //set 'newFocusTime' element in HTML to decremented 'focusTime'
 }
@@ -69,8 +142,12 @@ function increasePlayTime() {
     //declare a function and call it increasePlayTime
     var playTime = document.getElementById('newPlayTime').innerHTML;
     //declare variable, name it playTime and set it to value of newPlayTime HTML element with id newPlayTime
+    // console.log(playTime);
+    //console log the value of playTime
     playTime++;
     //increase playTime by 1
+    // console.log(playTime);
+    //console log the value of playTime
     document.getElementById('newPlayTime').innerHTML = playTime;
     //set 'newPlayTime' element in HTML to incremented 'playTime'
 }
@@ -78,17 +155,22 @@ function decreasePlayTime() {
     //declare a function and call it decreasePlayTime
     var playTime = document.getElementById('newPlayTime').innerHTML;
     //declare variable, name it playTime and set it to value of newPlayTime HTML element with id newPlayTime
+    // console.log(playTime);
+    //console log the value of playTime
     playTime--;
     //decrease playTime by 1
     if(playTime <= 1) {
         playTime = 1;
     };
     //if playTime is less than or equal to one, set to one
+    // console.log(playTime);
+    //console log the value of playTime
     document.getElementById('newPlayTime').innerHTML = playTime;
     //set 'newPlayTime' element in HTML to decremented 'playTime'
 }
 focusDuration();
 playDuration();
+stopResetButton();
 
 document.getElementById('increaseFocusTime').addEventListener('click', increaseFocusTime);
 // //listens for increaseFocusTime button to be clicked and then calls increaseFocusTime() function
@@ -98,3 +180,7 @@ document.getElementById('increasePlayTime').addEventListener('click', increasePl
 // //listens for increasePlayTime button to be clicked and then calls increasePlayTime() function
 document.getElementById('decreasePlayTime').addEventListener('click', decreasePlayTime);
 // //listens for decreasePlayTime button to be clicked and then calls decreasePlayTime() function
+document.getElementById('startTime').addEventListener('click',startTimer);
+// //listens for 'startTime' button to be clicked and then calls startTimer() function
+// document.getElementById('stopTime').addEventListener('click', stopCountTheSeconds);
+//listens for stopTime button to be clicked and then calls stopCountTheSeconds() function
