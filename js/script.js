@@ -1,5 +1,40 @@
 // JavaScript Document
 //create variable called focusDuration and set its default value to 25 minutes
+// function getCurrentTime() {
+//     //create function to get current time when start button is pressed
+//     //this time is added to time to be counted down (focus or play duration)
+//     var d = new Date();
+//     //retrieves current date/time in this format 'Thu Oct 13 2016 08:41:46 GMT-0700 (US Mountain Standard Time)'
+//     var newDate = d.getTime();
+//     document.getElementById('currentTime').innerHTML = d;
+//     //converts 'd' to milliseconds
+//     //var setFocus = 0;
+//     // console.log("d " + d);
+//     // console.log("newDate " + newDate);
+//     // document.getElementById('stopFocusMS').innerHTML = stopFocus;
+//     //must convert ms to int from string using parseInt(ms)
+//     // newDateString = newDate.toString();
+//     // console.log("newDateString " + newDateString);
+// }
+function getCurrentTime() {
+    var currentdate = new Date();
+    //declare variable  
+          var datetime = 
+                 currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+
+        //document.write(datetime);
+    console.log('currentdate ' + currentdate);
+    console.log('datetime ' + datetime);
+}
+getCurrentTime();
+function countDown(newDate) {
+    //create function to add focus time to current time from getCurrentTime function
+    var countDown = newDate + document.getElementById('newFocusTime').innerHTML;
+    console.log(countDown);
+}
+countDown();
 function focusDuration() {
     //Declare function called focusDuration
     var focusDuration = 25;
@@ -15,8 +50,8 @@ function playDuration() {
     //Declare function called playDuration
     var playDuration = 5;
     document.getElementById('newPlayTime').innerHTML = playDuration;
-    playDurationMS = playDuration * 60 * 1000;
-    console.log("playDurationMS " + playDurationMS);
+    // playDurationMS = playDuration * 60 * 1000;
+    // console.log("playDurationMS " + playDurationMS);
     //document.getElementById('playDurationMS').innerHTML = playDurationMS;
     //must convert ms to int from string using parseInt(ms)
 }
