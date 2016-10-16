@@ -16,6 +16,22 @@
 //     // newDateString = newDate.toString();
 //     // console.log("newDateString " + newDateString);
 // }
+var datetime0;
+var focusTimePlusCurrentTime;
+
+function focusTimePlusCurrentTime0() {
+    //create function that adds focusTime to currentTime
+    focusTimePlusCurrentTime;
+    //retreive focusTimePlusCurrentTime from global object
+    setInterval(function() { getCurrentTime() }, 1000)
+}
+
+function startTimer() {
+  datetime0;
+  // retreive datetime0 from global object
+  setInterval(function() { getCurrentTime() }, 1000)
+}
+
 function getCurrentTime() {
     var currentdate = new Date();
     //declare variable
@@ -26,7 +42,15 @@ function getCurrentTime() {
 
         //document.write(datetime);
         hours = currentdate.getHours();
-        minutes = currentdate.getMinutes(); 
+        minutes = currentdate.getMinutes();
+        minutes25 = currentdate.getMinutes() + 25;
+        if(minutes25 >= 60) {
+        var hours25 = hours + 1;
+        if(hours25 > 12) {
+            hours25 = 1;
+        }
+        minutes25 = minutes25 - 60;
+    }
         seconds = currentdate.getSeconds();
     hours = (hours < 10) ? "0" + hours : hours;
     //if hours is less than 10 concantenate 0 + hours and set it to hours else hours = hours
@@ -35,19 +59,23 @@ function getCurrentTime() {
     seconds = (seconds < 10) ? "0" + seconds : seconds;
     //if seconds is less than 10 concantenate 0 + seconds and set it to seconds else seconds = seconds
     var datetime0 = hours + ":" + minutes + ":" + seconds;
+    var datetime025 = hours25 + ":" + minutes25 + ":" + seconds;
+
 
     //return hours + ":" + minutes + ":" + seconds;
     //return hours contantenated to ':' contantenated to minutes contantenated to ':' contantenated to seconds contantenated to '.' contantenated to milliseconds
-    console.log('hours + ":" + minutes + ":" + seconds ' + hours + ":" + minutes + ":" + seconds);
-    console.log('currentdate ' + currentdate);
-    console.log('datetime ' + datetime);
+    //console.log('hours + ":" + minutes + ":" + seconds ' + hours + ":" + minutes + ":" + seconds);
+    //console.log('currentdate ' + currentdate);
+    //console.log('datetime ' + datetime);
     document.getElementById('currentTime').innerHTML = datetime0;
+    console.log(datetime0);
+    return [datetime0, datetime025];
 }
 getCurrentTime();
 function countDown(newDate) {
     //create function to add focus time to current time from getCurrentTime function
     var countDown = newDate + document.getElementById('newFocusTime').innerHTML;
-    console.log(countDown);
+    //console.log(countDown);
 }
 countDown();
 function focusDuration() {
@@ -58,6 +86,8 @@ function focusDuration() {
     //console.log("focusDurationMS " + focusDurationMS);
     //document.getElementById('focusDurationMS').innerHTML = focusDurationMS;
     //must convert ms to int from string using parseInt(ms)
+    console.log(focusDuration);
+    return focusDuration;
 }
 
 //create function called playDuration() that declares a variable called playDuration and set its default value to 5 minutes , then returns that value
@@ -137,8 +167,18 @@ function decreasePlayTime() {
     document.getElementById('newPlayTime').innerHTML = playTime;
     //set 'newPlayTime' element in HTML to decremented 'playTime'
 }
+function focusTimePlusCurrentTime() {
+    var a = getCurrentTime();
+    var b = focusDuration();
+    var focusTimePlusCurrentTime = b - a;
+    console.log(a);
+    console.log(b);
+    console.log(focusTimePlusCurrentTime);
+}
+focusTimePlusCurrentTime();
 focusDuration();
 playDuration();
+startTimer();
 
 document.getElementById('increaseFocusTime').addEventListener('click', increaseFocusTime);
 // //listens for increaseFocusTime button to be clicked and then calls increaseFocusTime() function
