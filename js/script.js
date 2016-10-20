@@ -1,36 +1,4 @@
-// JavaScript Document
-//create variable called focusDuration and set its default value to 25 minutes
-// function getCurrentTime() {
-//     //create function to get current time when start button is pressed
-//     //this time is added to time to be counted down (focus or play duration)
-//     var d = new Date();
-//     //retrieves current date/time in this format 'Thu Oct 13 2016 08:41:46 GMT-0700 (US Mountain Standard Time)'
-//     var newDate = d.getTime();
-//     document.getElementById('currentTime').innerHTML = d;
-//     //converts 'd' to milliseconds
-//     //var setFocus = 0;
-//     // console.log("d " + d);
-//     // console.log("newDate " + newDate);
-//     // document.getElementById('stopFocusMS').innerHTML = stopFocus;
-//     //must convert ms to int from string using parseInt(ms)
-//     // newDateString = newDate.toString();
-//     // console.log("newDateString " + newDateString);
-// }
 var datetime0;
-var focusTimePlusCurrentTime;
-
-function focusTimePlusCurrentTime0() {
-    //create function that adds focusTime to currentTime
-    focusTimePlusCurrentTime;
-    //retreive focusTimePlusCurrentTime from global object
-    setInterval(function() { getCurrentTime() }, 1000)
-}
-
-function startTimer() {
-  datetime0;
-  // retreive datetime0 from global object
-  setInterval(function() { getCurrentTime() }, 1000)
-}
 
 function getCurrentTime() {
     var currentdate = new Date();
@@ -45,10 +13,6 @@ function getCurrentTime() {
         minutes = currentdate.getMinutes();
         minutes25 = currentdate.getMinutes() + 25;
         if(minutes25 >= 60) {
-        var hours25 = hours + 1;
-        if(hours25 > 12) {
-            hours25 = 1;
-        }
         minutes25 = minutes25 - 60;
     }
         seconds = currentdate.getSeconds();
@@ -59,8 +23,7 @@ function getCurrentTime() {
     seconds = (seconds < 10) ? "0" + seconds : seconds;
     //if seconds is less than 10 concantenate 0 + seconds and set it to seconds else seconds = seconds
     var datetime0 = hours + ":" + minutes + ":" + seconds;
-    var datetime025 = hours25 + ":" + minutes25 + ":" + seconds;
-
+    var datetime025 = hours + ":" + minutes25 + ":" + seconds;
 
     //return hours + ":" + minutes + ":" + seconds;
     //return hours contantenated to ':' contantenated to minutes contantenated to ':' contantenated to seconds contantenated to '.' contantenated to milliseconds
@@ -68,16 +31,15 @@ function getCurrentTime() {
     //console.log('currentdate ' + currentdate);
     //console.log('datetime ' + datetime);
     document.getElementById('currentTime').innerHTML = datetime0;
-    console.log(datetime0);
-    return [datetime0, datetime025];
 }
-getCurrentTime();
-function countDown(newDate) {
-    //create function to add focus time to current time from getCurrentTime function
-    var countDown = newDate + document.getElementById('newFocusTime').innerHTML;
-    //console.log(countDown);
+
+function startClock() {
+  datetime0;
+  // retreive datetime0 from global object
+  setInterval(function() { getCurrentTime() }, 1000)
+  //calls getCurrentTime() every second
 }
-countDown();
+
 function focusDuration() {
     //Declare function called focusDuration
     var focusDuration = 25;
@@ -123,6 +85,28 @@ function msToTime(duration) {
     //return hours contantenated to ':' contantenated to minutes contantenated to ':' contantenated to seconds contantenated to '.' contantenated to milliseconds
 }
 
+//declare a function to retrieve element values & store in localStorage for later retrieval
+function retrieveElements() {
+    //declare a function and call it retrieveElements()
+    var currentTime = document.getElementById('currentTime').innerHTML;
+    var newFocusTime = document.getElementById('newFocusTime').innerHTML;
+    var newPlayTime = document.getElementById('newPlayTime').innerHTML;
+    var timeObj = {currentTime: currentTime, newFocusTime: newFocusTime, newPlayTime: newPlayTime};
+    var timeObjStr = JSON.stringify(timeObj);
+    console.log(timeObjStr)
+    if (typeof(Storage) !== "undefined") {
+        // check for localStore ability in browser
+            localStorage.setItem("timeObjStr",timeObjStr);
+            console.log("Your browser does support Web Storage...");
+            //store timeObjStr value with key timeObjStr in localStorage
+        } else {//if Storage == "undefined"
+            console.log("Sorry, your browser does not support Web Storage...");
+            //Retrieve "newFocusTime" from HTML and set it to the string "Sorry, your browser does not support Web Storage..."
+        };
+
+}
+
+
 function increaseFocusTime() {
     //declare a function and call it increaseFocusTime
     var focusTime = document.getElementById('newFocusTime').innerHTML;
@@ -167,18 +151,34 @@ function decreasePlayTime() {
     document.getElementById('newPlayTime').innerHTML = playTime;
     //set 'newPlayTime' element in HTML to decremented 'playTime'
 }
-function focusTimePlusCurrentTime() {
-    var a = getCurrentTime();
-    var b = focusDuration();
-    var focusTimePlusCurrentTime = b - a;
-    console.log(a);
-    console.log(b);
-    console.log(focusTimePlusCurrentTime);
+
+//declare function to retrieve items from localStorage
+function startTime() {
+    var timeObjStr = localStorage.getItem("timeObjStr",timeObjStr);
+    console.log(timeObjStr + " is from startTime()");
+    var timeObj = JSON.parse(timeObjStr);
+    var currentTimeStr = timeObj.currentTime;
+    var newFocusTimeStr = timeObj.newFocusTime;
+    var newPlayTimeStr = timeObj.newPlayTime;
+    currentTimeStrArr = currentTimeStr.split(":");
+    console.log(currentTimeStrArr);
+    currentTimeHr = parseInt(currentTimeStrArr[0]);
+    currentTimeMin = parseInt(currentTimeStrArr[1]);
+    currentTimeSec = parseInt(currentTimeStrArr[2]);
+    //console.log(typeof(currentTimeSec) + " is " + currentTimeSec);
+    var currentTime = parseInt(currentTimeStr);
+    var newFocusTime = parseInt(newFocusTimeStr);
+    var newPlayTime = parseInt(newPlayTimeStr);
+    console.log(typeof(currentTime));
+    //console.log(timeObj.newPlayTime);
 }
-focusTimePlusCurrentTime();
+
+getCurrentTime();
 focusDuration();
 playDuration();
-startTimer();
+startClock();
+retrieveElements();
+startTime();
 
 document.getElementById('increaseFocusTime').addEventListener('click', increaseFocusTime);
 // //listens for increaseFocusTime button to be clicked and then calls increaseFocusTime() function
@@ -187,4 +187,6 @@ document.getElementById('decreaseFocusTime').addEventListener('click', decreaseF
 document.getElementById('increasePlayTime').addEventListener('click', increasePlayTime);
 // //listens for increasePlayTime button to be clicked and then calls increasePlayTime() function
 document.getElementById('decreasePlayTime').addEventListener('click', decreasePlayTime);
+// //listens for decreasePlayTime button to be clicked and then calls decreasePlayTime() function
+document.getElementById('startTime').addEventListener('click', startTime);
 // //listens for decreasePlayTime button to be clicked and then calls decreasePlayTime() function
